@@ -73,14 +73,14 @@ loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    
+
     try {
         const res = await fetch('/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         });
-        
+
         if (res.ok) {
             const data = await res.json();
             token = data.token;
@@ -97,16 +97,16 @@ loginForm.addEventListener('submit', async (e) => {
 
 // Controls
 btnStart.addEventListener('click', () => {
-    if(socket) socket.emit('start');
+    if (socket) socket.emit('start');
 });
 
 btnPause.addEventListener('click', () => {
-    if(socket) socket.emit('pause');
+    if (socket) socket.emit('pause');
 });
 
 btnReset.addEventListener('click', () => {
-    if(confirm('Are you sure you want to reset the timer to its original duration?')) {
-        if(socket) socket.emit('reset');
+    if (confirm('Are you sure you want to reset the timer to its original duration?')) {
+        if (socket) socket.emit('reset');
     }
 });
 
@@ -114,16 +114,16 @@ btnSetTimer.addEventListener('click', () => {
     const hours = parseInt(inputHours.value) || 0;
     const minutes = parseInt(inputMinutes.value) || 0;
     const seconds = (hours * 3600) + (minutes * 60);
-    
-    if(seconds > 0 && confirm(`Set timer to ${hours} hours and ${minutes} minutes?`)) {
-        if(socket) socket.emit('set_timer', { seconds });
+
+    if (seconds > 0 && confirm(`Set timer to ${hours} hours and ${minutes} minutes?`)) {
+        if (socket) socket.emit('set_timer', { seconds });
     }
 });
 
 btnLogout.addEventListener('click', () => {
     token = null;
     localStorage.removeItem('hackathon_admin_token');
-    if(socket) socket.disconnect();
+    if (socket) socket.disconnect();
     loginForm.reset();
     showLogin();
 });
