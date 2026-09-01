@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&family=Oswald:wght@300;400&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --white: #ffffff;
+    --gray: #666666;
+    --dim-white: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* Logos & Hierarchy */
+.top-sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 1rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+
+/* Fallback styling if images are missing */
+img {
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+img::before {
+    content: attr(alt);
+    display: block;
+    border: 1px solid var(--dim-white);
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #050505;
+}
+
+/* Header */
+.header {
+    margin-top: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.header .subtitle {
+    font-size: 1rem;
+    letter-spacing: 6px;
+    color: var(--gray);
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* Circular Timer */
+.timer-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.timer-wrapper {
+    position: relative;
+    width: 40vh;
+    height: 40vh;
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 250px;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+}
+
+.timer-bg-circle {
+    stroke-width: 4;
+    stroke: var(--dim-white);
+    stroke-dasharray: 4 6; /* Creates the dashed effect */
+}
+
+.timer-fg-circle {
+    stroke-width: 4;
+    stroke: var(--white);
+    stroke-dasharray: 4 6; /* Matches background */
+}
+
+#mask-circle {
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    font-weight: 100;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* Bottom Sponsors Section */
+.sponsors-section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: slideUp 2s ease-out;
+}
+
+.responsive-strip {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 120px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    .header h1 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+    .header .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+    .responsive-strip {
+        max-height: 80px; /* Scale down slightly on very small screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Admin Styles */
+.admin-login-box {
+    background: #000000;
+    border: 1px solid var(--dim-white);
+    padding: 3rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid var(--dim-white);
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--white);
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--white);
+    color: var(--bg-color);
+}
+
+.admin-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}

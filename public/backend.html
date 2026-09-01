@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Admin Backend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="justify-content: center; align-items: center; display: flex;">
+        
+        <!-- Login UI -->
+        <div id="login-container" class="admin-login-box">
+            <h2 style="font-family: 'Oswald', sans-serif; text-align: center; margin-bottom: 2rem; font-weight: 300; letter-spacing: 2px;">ADMIN LOGIN</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p id="login-error" style="color: #ff3333; margin-top: 1rem; text-align: center; display: none; font-family: 'Roboto'; font-weight: 300;">Invalid credentials</p>
+        </div>
+
+        <!-- Admin Control UI -->
+        <div id="control-container" class="admin-login-box" style="display: none; max-width: 600px;">
+            <h2 style="font-family: 'Oswald', sans-serif; text-align: center; margin-bottom: 2rem; font-weight: 300; letter-spacing: 2px;">TIMER CONTROL</h2>
+            
+            <div style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--dim-white); border-radius: 4px; background: rgba(255,255,255,0.02);">
+                <h4 style="margin-bottom: 1rem; font-weight: 300; letter-spacing: 1px; color: var(--gray);">CUSTOM TIMER SETUP</h4>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <div class="input-group" style="margin-bottom: 0; flex: 1;">
+                        <label>Hours</label>
+                        <input type="number" id="input-hours" min="0" value="24">
+                    </div>
+                    <div class="input-group" style="margin-bottom: 0; flex: 1;">
+                        <label>Minutes</label>
+                        <input type="number" id="input-minutes" min="0" max="59" value="0">
+                    </div>
+                </div>
+                <button id="btn-set-timer" class="btn" style="border-color: var(--dim-white); padding: 0.8rem; font-size: 1rem;">Set Custom Duration</button>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="font-family: 'Roboto', sans-serif; font-size: 4rem; font-weight: 100;" id="admin-timer">24:00:00</h3>
+                <p id="status-text" style="color: var(--gray); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 300;">PAUSED</p>
+            </div>
+
+            <div class="admin-controls">
+                <button id="btn-start" class="btn">Start</button>
+                <button id="btn-pause" class="btn">Pause</button>
+                <button id="btn-reset" class="btn">Reset</button>
+            </div>
+            
+            <button id="btn-logout" class="btn" style="margin-top: 2rem; border-color: transparent; color: var(--gray); font-size: 0.9rem;">Logout</button>
+        </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="backend.js"></script>
+</body>
+</html>
