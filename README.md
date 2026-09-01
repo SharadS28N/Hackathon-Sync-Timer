@@ -12,16 +12,16 @@ A pro-level, fully synchronized real-time countdown timer built with Node.js, Ex
 
 ### Recommended Node.js Hosts (Flawless Sync)
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SharadS28N/Hackathon-Sync-Timer)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?repo=SharadS28N/Hackathon-Sync-Timer)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SharadS28N/Hackathon-Sync-Timer)
 
 ---
 
 ### Requested Deploy Buttons
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/SharadS28N/Hackathon-Sync-Timer)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SharadS28N/Hackathon-Sync-Timer)
 *Note: GitHub Pages does not have a direct deploy button, but you can deploy static assets by going to your repository **Settings > Pages** and selecting the `public` folder.*
 
 ---
